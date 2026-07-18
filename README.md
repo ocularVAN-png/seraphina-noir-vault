@@ -1,7 +1,3 @@
-# seraphina-noir-vault
-Official Vault for Seraphina Noir — Premium Anime Erotic NFT Collection
-# Seraphina Noir — Midnight Claim Vault
-
 **Official Vault for Seraphina Noir** — Premium anime erotic NFT Collection.
 
 She has chosen her owner.
