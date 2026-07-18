@@ -1,0 +1,11 @@
+{
+  "name": "Seraphina Noir #001 - Midnight Claim",
+  "description": "The first official piece from the Noir Vault. Leather on the balcony under the moon. She has chosen her owner. Highly detailed anime fine-art masterpiece.",
+  "image": "https://github.com/ocularVAN-png/seraphina-noir-vault/raw/main/assets/images/001-midnight-claim.png",
+  "attributes": [
+    {"trait_type": "Setting", "value": "Luxury Balcony Night"},
+    {"trait_type": "Outfit", "value": "Black Leather Harness"},
+    {"trait_type": "Pose", "value": "Powerful Arch"},
+    {"trait_type": "Rarity", "value": "Genesis"}
+  ]
+}
