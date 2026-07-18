@@ -1,0 +1,27 @@
+name: Validate Noir Vault
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate all metadata JSON
+        run: |
+          echo "=== Validating metadata files ==="
+          for file in assets/metadata/*.json; do
+            echo "Checking: $file"
+            python3 -m json.tool "$file" > /dev/null && echo "✅ Valid" || echo "❌ Invalid JSON"
+          done
+
+      - name: List all NFTs
+        run: |
+          echo "=== NFTs in Vault ==="
+          ls assets/metadata/*.json | xargs -n 1 basename
+          echo "Total: $(ls assets/metadata/*.json | wc -l)"
