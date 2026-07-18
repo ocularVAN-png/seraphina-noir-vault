@@ -1,0 +1,40 @@
+name: Update README with Vault Stats
+
+on:
+  push:
+    paths:
+      - 'assets/metadata/**'
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Update README with stats
+        run: |
+          NFT_COUNT=$(ls assets/metadata/*.json | wc -l)
+          LATEST=$(ls -t assets/metadata/*.json | head -1 | xargs basename | sed 's/.json//')
+
+          echo "# Seraphina Noir — Midnight Claim Vault" > README.md
+          echo "" >> README.md
+          echo "**Official Vault for Seraphina Noir** — Premium anime erotic NFT Collection." >> README.md
+          echo "" >> README.md
+          echo "She has chosen her owner." >> README.md
+          echo "" >> README.md
+          echo "## Current Vault Stats" >> README.md
+          echo "- **Total NFTs**: $NFT_COUNT" >> README.md
+          echo "- **Latest Piece**: $LATEST" >> README.md
+          echo "" >> README.md
+          echo "## About the Collection" >> README.md
+          echo "High-quality, consistent character art with seductive short videos and rich lore." >> README.md
+          echo "" >> README.md
+          echo "See full roadmap in [docs/roadmap.md](docs/roadmap.md)" >> README.md
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: "chore: auto-update vault stats"
+          add: "README.md"
